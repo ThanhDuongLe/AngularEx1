@@ -1,0 +1,19 @@
+.tableForm{
+    width: 100%;
+    border: 1px solid black;
+};
+.columnData{
+    width: 100%;
+    border: 1px solid black;
+}
+table{
+    width: 180%;
+    border: 1px solid black;
+    font-size: smaller;
+}
+td{
+    border: 1px solid black;
+}
+tr{
+    width: 40%;
+}

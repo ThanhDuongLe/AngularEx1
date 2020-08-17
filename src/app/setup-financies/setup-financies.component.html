@@ -1,0 +1,122 @@
+
+<div class="" style="margin: 20px;">
+  <h1>Setup Financies</h1>
+  <hr>
+  <p >Year: <input type="text"></p>
+  
+  <table cellspacing="5" >
+    <thead>
+      
+    </thead>
+  
+    <tbody >
+      <tr >
+        <td *ngFor="let month of months; let monthNum = index" style="width: 3%;">
+          <strong>{{month}}</strong> 
+          <tr *ngIf="monthNum > 0">
+            <td *ngFor="let monthDetail of monthDetail">{{monthDetail}}</td>
+          </tr>
+        </td>
+      </tr>
+  
+      <tr >
+        <th class="" style="text-align: left;"> 
+          {{dataTitle[0]}}
+        </th>
+      </tr>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index"> 
+          <div class="" *ngIf="monthNum==0">New category1</div>
+          <tr *ngIf="monthNum > 0">
+            <td *ngFor="let monthdetail of monthDetail">
+              <div><input type="text" style="width: 83%;"></div>
+            </td>
+          </tr>
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <div class="" *ngIf="monthNum==0">Testing new category</div>
+          <tr *ngIf="monthNum > 0">
+            <td *ngFor="let monthdetail of monthDetail">
+              <div><input type="text" style="width: 83%;"></div>
+            </td>
+          </tr>
+        </td>
+      </tr>
+      <div class="" style="background-color: gray; width: 1470%;">
+        <tr >
+          <div class="" >
+            <input type="text" placeholder="Add new category" style="height: 5%;">
+          </div>
+        </tr>
+      </div>
+      
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <strong class="" *ngIf="monthNum==0">{{dataTitle[1]}}</strong>
+          <tr *ngIf="monthNum > 0">
+            <td *ngFor="let monthdetail of monthDetail">
+              <div><input type="text" style="width: 83%;"></div>
+            </td>
+          </tr>
+        </td>
+      </tr>
+  
+      <tr >
+        <th class="" style="text-align: left;"> 
+          {{dataTitle[2]}}
+        </th>
+      </tr>
+      <div class="" style="background-color: gray; width: 1470%;">
+        <tr >
+          <div class="" >
+            <input type="text" placeholder="Add new category" style="height: 5%;">
+          </div>
+        </tr>
+      </div>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <strong class="" *ngIf="monthNum==0">{{dataTitle[3]}}</strong>
+          <tr *ngIf="monthNum > 0">
+            <div class="" style="width: 168px; background-color: lawngreen;">
+              <td style="width: 56px; text-align: center;">data</td>
+              <td style="width: 56px; text-align: center;">data</td>
+              <td style="width: 56px; text-align: center;">data</td>
+            </div>
+          </tr>
+        </td>
+      </tr>
+  
+      <tr style="height: 10%;">
+        <th class="" style="text-align: left; color: white;"> 
+          D
+        </th>
+      </tr>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <strong class="" *ngIf="monthNum==0">{{dataTitle[4]}}</strong>
+          <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <strong class="" *ngIf="monthNum==0">{{dataTitle[1]}}</strong>
+          <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <strong class="" *ngIf="monthNum==0">{{dataTitle[3]}}</strong>
+          <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let month of months; let monthNum = index" > 
+          <strong class="" *ngIf="monthNum==0">{{dataTitle[5]}}</strong>
+          <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

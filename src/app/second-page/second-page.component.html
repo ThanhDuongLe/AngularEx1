@@ -1,0 +1,52 @@
+<table class='tableForm'>
+  <tr class='Setup'>
+    <h1>Setup Financial</h1>
+  </tr>
+  <tr>
+    Year:
+    <mat-form-field appearance="standard">
+      <mat-label>Input</mat-label>
+      <input matInput [(ngModel)]="inputYear" placeholder="Input year...">
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      <!-- <mat-hint>Hint Here</mat-hint> -->
+      <!-- <mat-error *ngIf="error">Show Your Error Here</mat-error> -->
+    </mat-form-field>
+  </tr>
+  <!--  ------------------  -->
+  <ng-container>
+    <div *ngFor="let item of items; let i = index" style="width: 100%;">
+      <td class='columnData' style="width: 7%;" *ngIf='i==0'> okkkk</td>
+      <td class='columnData' *ngIf='i!=0;' style="width: 7;">
+
+        <div class="" *ngIf='i==1'>
+          <th>{{dataTitle[0]}}</th>
+        </div>
+        <div *ngIf='i!=1'>
+          col{{i}}
+        </div>
+        
+        <!-- <tr *ngIf='i==2'>
+              row{{i}}
+            </tr> -->
+      </td>
+      
+
+    <td *ngFor='let month of months'>
+      <div class="" *ngIf='i==0'>
+        {{month}}
+        <tr>
+          <td *ngFor='let detail of monthDetail'>
+            {{detail}}
+          </td>
+        </tr>
+      </div>
+    </td>
+    <!-- {{item}} -->
+    </div>
+  </ng-container>
+
+</table>
+
+<ng-template #showCol>
+  
+</ng-template>
