@@ -1,118 +1,150 @@
-
 <div class="" style="margin: 20px;">
   <h1>Setup Financies</h1>
   <hr>
-  <p >Year: <input type="text"></p>
-  
-  <table cellspacing="5" >
-    <thead>
-      
-    </thead>
-  
-    <tbody >
-      <tr >
+  <p>
+    Year: <input type="number" [(ngModel)]="inputYear" value="inputYear">
+    <button type="menu" [matMenuTriggerFor]="menu" style="width: fit-content; height: fit-content;margin-left: 2px;">
+      <mat-icon style="font-size: small;background-color: aqua;height: fit-content;width: fit-content; ">expand_more
+      </mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item type="submit" (click)="inputYear = 2018">
+        <span>2018</span>
+      </button>
+      <button mat-menu-item type="submit" (click)="inputYear = 2019">
+        <span>2019</span>
+      </button>
+      <button mat-menu-item type="submit" (click)="inputYear = 2020">
+        <span>2020</span>
+      </button>
+      <button mat-menu-item type="submit" (click)="inputYear = 2021">
+        <span>2021</span>
+      </button>
+    </mat-menu>
+  </p>
+
+  <table cellspacing="5" *ngIf="inputYear">
+    <thead></thead>
+
+    <tbody>
+      <tr>
         <td *ngFor="let month of months; let monthNum = index" style="width: 3%;">
-          <strong>{{month}}</strong> 
-          <tr *ngIf="monthNum > 0">
-            <td *ngFor="let monthDetail of monthDetail">{{monthDetail}}</td>
-          </tr>
-        </td>
+          <strong>{{month}}</strong>
+      <tr *ngIf="monthNum > 0">
+        <td style="width: 120px; text-align: center;" *ngFor="let monthDetail of monthDetail">{{monthDetail}}</td>
       </tr>
-  
-      <tr >
-        <th class="" style="text-align: left;"> 
+      </td>
+      </tr>
+
+      <tr>
+        <th class="" style="text-align: left;">
           {{dataTitle[0]}}
         </th>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index"> 
+        <td *ngFor="let month of months; let monthNum = index">
           <div class="" *ngIf="monthNum==0">New category1</div>
-          <tr *ngIf="monthNum > 0">
-            <td *ngFor="let monthdetail of monthDetail">
-              <div><input type="text" style="width: 83%;"></div>
-            </td>
-          </tr>
+      <tr *ngIf="monthNum > 0">
+        <td *ngFor="let monthdetail of monthDetail">
+          <div><input type="text" style="width: 100px;"></div>
         </td>
+      </tr>
+      </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <div class="" *ngIf="monthNum==0">Testing new category</div>
-          <tr *ngIf="monthNum > 0">
-            <td *ngFor="let monthdetail of monthDetail">
-              <div><input type="text" style="width: 83%;"></div>
-            </td>
-          </tr>
+      <tr *ngIf="monthNum > 0">
+        <td *ngFor="let monthdetail of monthDetail">
+          <div><input type="text" style="width: 100px;"></div>
         </td>
       </tr>
-      <div class="" style="background-color: gray; width: 1470%;">
-        <tr >
-          <div class="" >
-            <input type="text" placeholder="Add new category" style="height: 5%;">
+      </td>
+      </tr>
+      <!-- ------------Use for new category if add--------------- -->
+      <tr *ngFor="let category of newCategory; let cateNum = index">
+        <td *ngFor="let month of months; let monthNum = index">
+          <div class="" *ngIf="monthNum==0" (click)="openDialog()">{{category}}</div>
+      <tr *ngIf="monthNum > 0">
+        <td *ngFor="let monthdetail of monthDetail">
+          <div><input type="text" style="width: 100px;"></div>
+        </td>
+      </tr>
+      </td>
+      </tr>
+      <!-- ------------------------------------------------------ -->
+      <div class="" style="background-color: gray; width: auto;">
+        <tr>
+          <div class="">
+            <!-- New category 1 here -->
+            <input #inputCateName1 type="text" placeholder="Add new category"
+              (keyup.enter)="addNewCategory1(inputCateName1.value)" style="height: 5%;">
           </div>
         </tr>
       </div>
-      
+
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[1]}}</strong>
-          <tr *ngIf="monthNum > 0">
-            <td *ngFor="let monthdetail of monthDetail">
-              <div><input type="text" style="width: 83%;"></div>
-            </td>
-          </tr>
+      <tr *ngIf="monthNum > 0">
+        <td *ngFor="let monthdetail of monthDetail">
+          <div><input type="text" style="width: 100px;"></div>
         </td>
       </tr>
-  
-      <tr >
-        <th class="" style="text-align: left;"> 
+      </td>
+      </tr>
+
+      <tr>
+        <th class="" style="text-align: left;">
           {{dataTitle[2]}}
         </th>
       </tr>
-      <div class="" style="background-color: gray; width: 1470%;">
-        <tr >
-          <div class="" >
+      <div class="" style="background-color: gray; width: auto;">
+        <tr>
+          <div class="">
+            <!-- New category 2 here -->
             <input type="text" placeholder="Add new category" style="height: 5%;">
           </div>
         </tr>
       </div>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[3]}}</strong>
-          <tr *ngIf="monthNum > 0">
-            <div class="" style="width: 168px; background-color: lawngreen;">
-              <td style="width: 56px; text-align: center;">data</td>
-              <td style="width: 56px; text-align: center;">data</td>
-              <td style="width: 56px; text-align: center;">data</td>
-            </div>
-          </tr>
-        </td>
+      <tr *ngIf="monthNum > 0">
+        <div class="" style="width: auto; background-color: lawngreen;">
+          <td style="width: 120px; text-align: center;">data</td>
+          <td style="width: 120px; text-align: center;">data</td>
+          <td style="width: 120px; text-align: center;">data</td>
+        </div>
       </tr>
-  
+      </td>
+      </tr>
+
       <tr style="height: 10%;">
-        <th class="" style="text-align: left; color: white;"> 
+        <th class="" style="text-align: left; color: white;">
           D
         </th>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[4]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[1]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[3]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index" > 
+        <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[5]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>

@@ -9,7 +9,11 @@ import {
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule
 } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,9 @@ import {
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -33,6 +40,9 @@ import {
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule
   ]
 })
 export class MaterialImport { }
