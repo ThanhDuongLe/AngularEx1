@@ -30,41 +30,45 @@
       <tr>
         <td *ngFor="let month of months; let monthNum = index" style="width: 3%;">
           <strong>{{month}}</strong>
-      <tr *ngIf="monthNum > 0">
-        <td style="width: 120px; text-align: center;" *ngFor="let monthDetail of monthDetail">{{monthDetail}}</td>
-      </tr>
-      </td>
+          <tr *ngIf="monthNum > 0">
+            <td style="width: 120px; text-align: center;" *ngFor="let monthDetail of monthDetail">{{monthDetail}}</td>
+          </tr>
+        </td>
       </tr>
 
       <tr>
-        <th class="" style="text-align: left;">
+        <th class="" style="text-align: left; height: 30px;">
           {{dataTitle[0]}}
         </th>
       </tr>
-      <tr>
+      <!-- <tr>
         <td *ngFor="let month of months; let monthNum = index">
           <div class="" *ngIf="monthNum==0">New category1</div>
-      <tr *ngIf="monthNum > 0">
-        <td *ngFor="let monthdetail of monthDetail">
-          <div><input type="text" style="width: 100px;"></div>
+          <tr *ngIf="monthNum > 0">
+            <td *ngFor="let monthdetail of monthDetail">
+              <div><input type="text" style="width: 100px;"></div>
+            </td>
+          </tr>
         </td>
-      </tr>
-      </td>
       </tr>
       <tr>
         <td *ngFor="let month of months; let monthNum = index">
           <div class="" *ngIf="monthNum==0">Testing new category</div>
-      <tr *ngIf="monthNum > 0">
-        <td *ngFor="let monthdetail of monthDetail">
-          <div><input type="text" style="width: 100px;"></div>
+          <tr *ngIf="monthNum > 0">
+            <td *ngFor="let monthdetail of monthDetail">
+              <div><input type="text" style="width: 100px;"></div>
+            </td>
+          </tr>
         </td>
-      </tr>
-      </td>
-      </tr>
+      </tr> -->
       <!-- ------------Use for new category if add--------------- -->
-      <tr *ngFor="let category of newCategory; let cateNum = index">
+      <tr appTouchRemoveItem *ngFor="let category of newCategory; let cateNum = index">
         <td *ngFor="let month of months; let monthNum = index">
-          <div class="" *ngIf="monthNum==0" (click)="openDialog()">{{category}}</div>
+          <div matTooltip="Touch to delete this category" matTooltipPosition="left" *ngIf="monthNum==0"
+            style="height: 30px; text-align: start"  
+            (click)="openDialog({category:1,value:cateNum})">
+            {{category}}
+          </div>
       <tr *ngIf="monthNum > 0">
         <td *ngFor="let monthdetail of monthDetail">
           <div><input type="text" style="width: 100px;"></div>
@@ -73,11 +77,12 @@
       </td>
       </tr>
       <!-- ------------------------------------------------------ -->
-      <div class="" style="background-color: gray; width: auto;">
+      <div matTooltip="Input your name and press enter" matTooltipPosition="after"
+        style="background-color: gray; width: auto;">
         <tr>
           <div class="">
             <!-- New category 1 here -->
-            <input #inputCateName1 type="text" placeholder="Add new category"
+            <input #inputCateName1 type="text" placeholder="Add new category" [(ngModel)]="category1"
               (keyup.enter)="addNewCategory1(inputCateName1.value)" style="height: 5%;">
           </div>
         </tr>
@@ -87,23 +92,44 @@
         <td *ngFor="let month of months; let monthNum = index">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[1]}}</strong>
       <tr *ngIf="monthNum > 0">
+        <div class="" style="width: auto; background-color: lawngreen;">
+          <td style="width: 120px; text-align: center;">data</td>
+          <td style="width: 120px; text-align: center;">data</td>
+          <td style="width: 120px; text-align: center;">data</td>
+        </div>
+      </tr>
+      </td>
+      </tr>
+
+      <tr>
+        <th class="" style="text-align: left;  height: 30px;">
+          {{dataTitle[2]}}
+        </th>
+      </tr>
+
+      <!-- ------------Use for new category2 if add--------------- -->
+      <tr appTouchRemoveItem *ngFor="let category of newCategory2; let cateNum = index">
+        <td  *ngFor="let month of months; let monthNum = index">
+          <div  matTooltip="Touch to delete this category" matTooltipPosition="left" *ngIf="monthNum==0"
+            style="height: 30px; text-align: start"
+            (click)="openDialog({category:2,value:cateNum})">
+            {{category}}
+          </div>
+      <tr *ngIf="monthNum > 0">
         <td *ngFor="let monthdetail of monthDetail">
           <div><input type="text" style="width: 100px;"></div>
         </td>
       </tr>
       </td>
       </tr>
-
-      <tr>
-        <th class="" style="text-align: left;">
-          {{dataTitle[2]}}
-        </th>
-      </tr>
-      <div class="" style="background-color: gray; width: auto;">
+      <!-- ------------------------------------------------------ -->
+      <div matTooltip="Input your name and press enter" matTooltipPosition="after"
+        style="background-color: gray; width: auto;">
         <tr>
           <div class="">
             <!-- New category 2 here -->
-            <input type="text" placeholder="Add new category" style="height: 5%;">
+            <input #inputCateName2 type="text" placeholder="Add new category" [(ngModel)]="category2"
+              (keyup.enter)="addNewCategory2(inputCateName2.value)" style="height: 5%;">
           </div>
         </tr>
       </div>
@@ -126,25 +152,25 @@
         </th>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index">
+        <td *ngFor="let month of months; let monthNum = index" style="height: 30px;">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[4]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index">
+        <td *ngFor="let month of months; let monthNum = index" style="height: 30px;">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[1]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index">
+        <td *ngFor="let month of months; let monthNum = index" style="height: 30px;">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[3]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let month of months; let monthNum = index">
+        <td *ngFor="let month of months; let monthNum = index" style="height: 30px;">
           <strong class="" *ngIf="monthNum==0">{{dataTitle[5]}}</strong>
           <div class="" *ngIf="monthNum > 0"> {{monthNum}}</div>
         </td>

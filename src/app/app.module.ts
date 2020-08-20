@@ -8,13 +8,16 @@ import { MaterialImport } from './Material/Material.module';
 import { SetupFinanciesComponent } from './setup-financies/setup-financies.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
+import { EventEmitterService } from './event-emitter.service';
+import { TouchRemoveItemDirective } from './touch-remove-item.directive';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
       SetupFinanciesComponent,
       SecondPageComponent,
-      DialogAlertComponent
+      DialogAlertComponent,
+      TouchRemoveItemDirective
    ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
     MaterialImport,
   ],
   providers: [
-    MaterialImport
+    MaterialImport,
+    EventEmitterService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogAlertComponent] //should add this entry to show dialog
