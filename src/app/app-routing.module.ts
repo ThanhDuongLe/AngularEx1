@@ -10,6 +10,7 @@ import { RecipeEditComponent } from './RecipePage/recipes/recipe-edit/recipe-edi
 
 const appRoutes: Routes = [
     {path:'', component:HomeComponent, children:[
+        {path:'', redirectTo:'/recipes', pathMatch:'full'},
         {path:'recipes', component:RecipesComponent, children:[
             {path:'', component:RecipeStartComponent},
             {path:'new', component:RecipeEditComponent},

@@ -3,7 +3,7 @@ import { NgModule, } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialImport } from './Material/Material.module';
 import { SetupFinanciesComponent } from './setup-financies/setup-financies.component';
 import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
@@ -26,6 +26,9 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './RecipePage/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './RecipePage/recipes/recipe-edit/recipe-edit.component';
+import { UserFormComponent } from './setup-financies/user-form/user-form.component';
+import { DataServiceService } from './setup-financies/data-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 // const routes: Routes = [
 //   {path:'', component:HomeComponent},
@@ -51,7 +54,8 @@ import { RecipeEditComponent } from './RecipePage/recipes/recipe-edit/recipe-edi
       PageNotFoundComponent,
       HomeComponent,
       RecipeStartComponent,
-      RecipeEditComponent
+      RecipeEditComponent,
+      UserFormComponent
    ],
   imports: [
     BrowserModule,
@@ -59,6 +63,8 @@ import { RecipeEditComponent } from './RecipePage/recipes/recipe-edit/recipe-edi
     FormsModule,
     MaterialImport,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     // RouterModule.forRoot(routes)
   ],
   providers: [
@@ -66,6 +72,8 @@ import { RecipeEditComponent } from './RecipePage/recipes/recipe-edit/recipe-edi
     EventEmitterService,
     RecipeService,
     ShoppingListService,
+    RecipeService,
+    DataServiceService
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogAlertComponent] //should add this entry to show dialog

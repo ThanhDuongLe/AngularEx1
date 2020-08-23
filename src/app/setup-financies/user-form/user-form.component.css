@@ -1,0 +1,9 @@
+text,input.ng-invalid{
+    border: 1px solid red
+}
+table{
+    border: 1px solid black
+}
+th{
+    color: darkorange;
+}

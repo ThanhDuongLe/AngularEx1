@@ -11,7 +11,9 @@ import { EventEmitterService } from '../event-emitter.service';
 
 export class SetupFinanciesComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private eventEmitterService: EventEmitterService){}
+  constructor(
+    public dialog: MatDialog, 
+    private eventEmitterService: EventEmitterService){}
 
   openDialog(value:void){
     console.log(value)

@@ -1,0 +1,103 @@
+<h2 class="center">~Test form of user~</h2>
+
+<form [formGroup]="registerGroup" (ngSubmit)="registerOnSubmit()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                    type="text"
+                    formControlName="name"
+                    id="name"
+                    class="form-control"
+                    ngModel
+                    required
+                    >
+                    <p *ngIf="!registerGroup.value.name">Please input your name</p>    
+            </div>
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="text"
+                    formControlName="email"
+                    id="email"
+                    class="form-control"
+                    ngModel
+                    required
+                        pattern="^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$"
+                    >
+                <p *ngIf="!registerGroup.value.email">Please input email correctly</p>    
+            </div>
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="text"
+                    formControlName="password"
+                    id="password"
+                    class="form-control"
+                    ngModel
+                    required
+                    >
+                <p *ngIf="!registerGroup.value.password">Don't forget your password</p>    
+            </div>
+        </div>
+    </div>  
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <button 
+                class="btn btn-success"
+                type="submit">Register</button>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-xs-12">
+            <button 
+                class="btn btn-success"
+                type="button"
+                (click)="onPost()">Post Firebase</button>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-xs-12">
+            <button 
+                class="btn btn-success"
+                type="button"
+                (click)="onGet()">Get Firebase</button>
+        </div>
+    </div>  
+</form>
+
+<hr>
+
+<div class="row">
+    <div class="col-xs-12">
+        <table style="width: 70%;">
+            <thead><h4> Registed User </h4></thead>
+            <tr >
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+            <tr *ngFor="let user of showUserRegisted">
+                <td row="1">{{user.name}} </td> 
+                <td row="1">{{user.email}} </td> 
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row" *ngIf="error">
+    <div class="col-xs-12">
+        <div class="alert alert-danger">
+            {{ error }}
+        </div>
+    </div>
+</div>
