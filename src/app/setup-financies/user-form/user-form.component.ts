@@ -15,6 +15,7 @@ export class UserFormComponent implements OnInit {
   public registerInfo: RegisterInfo;
   public showUserRegisted: RegisterInfo[];
   public error = null;
+  public idDelete: string = '';
   
   constructor(
     private registerService: DataServiceService,
@@ -75,7 +76,7 @@ export class UserFormComponent implements OnInit {
         if(res.hasOwnProperty(key))
           dataStore.push({...res[key], id:key})
       }
-      console.log('dataStore='+dataStore.toString());
+      // console.log('dataStore='+dataStore.toString());
       return dataStore;
     }))
     .subscribe(
@@ -87,6 +88,17 @@ export class UserFormComponent implements OnInit {
         this.error = error.message;
       }
     )
+  }
+
+  onDelete(id: string){
+    let id_delete = 'https://angularex-78d45.firebaseio.com/AngularEx1/-MFTS6X6b1bP6QqDF0CZ.json';
+    this.http.delete(id_delete)
+    .subscribe(
+      (res) => {
+        console.log('Dlele status: '+res);
+      }
+    )
+    // console.log(id);
   }
 
 }

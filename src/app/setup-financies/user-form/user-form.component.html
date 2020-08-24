@@ -74,6 +74,14 @@
                 (click)="onGet()">Get Firebase</button>
         </div>
     </div>  
+    <div class="row">
+        <div class="col-xs-12">
+            <button 
+                class="btn btn-danger"
+                type="button"
+                (click)="onDelete(idDelete)">Delete post</button>
+        </div>
+    </div>  
 </form>
 
 <hr>
@@ -87,7 +95,7 @@
                 <th>Email</th>
             </tr>
             <tr *ngFor="let user of showUserRegisted">
-                <td row="1">{{user.name}} </td> 
+                <td row="1" (click)= onDelete(user)>{{user.name}} </td> 
                 <td row="1">{{user.email}} </td> 
             </tr>
         </table>

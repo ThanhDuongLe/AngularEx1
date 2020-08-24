@@ -28,7 +28,10 @@ import { RecipeStartComponent } from './RecipePage/recipes/recipe-start/recipe-s
 import { RecipeEditComponent } from './RecipePage/recipes/recipe-edit/recipe-edit.component';
 import { UserFormComponent } from './setup-financies/user-form/user-form.component';
 import { DataServiceService } from './setup-financies/data-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthComponent } from './RecipePage/auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './RecipePage/auth/auth-interceptor.service';
 
 // const routes: Routes = [
 //   {path:'', component:HomeComponent},
@@ -55,7 +58,9 @@ import { HttpClientModule } from '@angular/common/http';
       HomeComponent,
       RecipeStartComponent,
       RecipeEditComponent,
-      UserFormComponent
+      UserFormComponent,
+      AuthComponent,
+      LoadingSpinnerComponent
    ],
   imports: [
     BrowserModule,
@@ -73,7 +78,8 @@ import { HttpClientModule } from '@angular/common/http';
     RecipeService,
     ShoppingListService,
     RecipeService,
-    DataServiceService
+    DataServiceService,
+    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi:true}
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogAlertComponent] //should add this entry to show dialog
