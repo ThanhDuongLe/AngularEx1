@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() featureSelected = new EventEmitter<string>();
   private userSub: Subscription;
-  isAuthenticated = false;
+  public isAuthenticated = false;
 
   onSelect(feature: string){
     this.featureSelected.emit(feature);
